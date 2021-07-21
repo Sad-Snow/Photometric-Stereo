@@ -1,7 +1,7 @@
 close all;
 
 % % vatiables need to be changed
-dataDir     = fullfile('..','data/photometricStereo/20210608·ÖÇø¹âÔ´'); % Path to your data directory (rename this to where you download the data)
+dataDir     = fullfile('..','data/'); % Path to your data directory (rename this to where you download the data)
 subjectName = '3'; %debug, yaleB01, yaleB02, yaleB05, yaleB07, RH
 theta = 30.0; % the theta of the light(calculate from middle)
 theta2 = 5.7; % the theta of the light(calculate from edge)
@@ -24,7 +24,7 @@ if dimension==2
 elseif dimension==3
     gray=rgb2gray(allDirection);
 else
-    error('%s','Î´Öª¸ñÊ½Í¼Ïñ');
+    error('%s','æœªçŸ¥æ ¼å¼å›¾åƒ');
 end
 % gray=rescale(gray);
 allDirection_gray=double(gray);
@@ -52,7 +52,7 @@ for j = 1 : total_images
     elseif dimension==3
         singleDirection_gray=rgb2gray(singleDirection);
     else
-        error('%s','Î´Öª¸ñÊ½Í¼Ïñ');
+        error('%s','æœªçŸ¥æ ¼å¼å›¾åƒ');
     end
     %
 %     singleDirection_gray=rescale(singleDirection_gray); 
@@ -81,7 +81,7 @@ end
 %     elseif dimension==3
 %         singleDirection_gray=rgb2gray(singleDirection);
 %     else
-%         error('%s','Î´Öª¸ñÊ½Í¼Ïñ');
+%         error('%s','æœªçŸ¥æ ¼å¼å›¾åƒ');
 %     end
 %     %
 % %     [maxPointY maxPointX]=find(singleDirection_gray==max(max(singleDirection_gray)));
@@ -120,11 +120,11 @@ for i=1:size(imarray,3)
     imarray(:,:,i)=temp;
 end
 
-% IMG_imhist = imhist(imarray(:,:,1));%²úÉú¹æ¶¨»¯Ä£°å
-% imarray(:,:,2) = histeq(imarray(:,:,2),IMG_imhist);%Ö±·½Í¼¹æ¶¨»¯
-% imarray(:,:,3) = histeq(imarray(:,:,3),IMG_imhist);%Ö±·½Í¼¹æ¶¨»¯
-% IMG_imhist = imhist(imarray(:,:,2));%²úÉú¹æ¶¨»¯Ä£°å
-% imarray(:,:,4) = histeq(imarray(:,:,4),IMG_imhist);%Ö±·½Í¼¹æ¶¨»¯
+% IMG_imhist = imhist(imarray(:,:,1));%äº§ç”Ÿè§„å®šåŒ–æ¨¡æ¿
+% imarray(:,:,2) = histeq(imarray(:,:,2),IMG_imhist);%ç›´æ–¹å›¾è§„å®šåŒ–
+% imarray(:,:,3) = histeq(imarray(:,:,3),IMG_imhist);%ç›´æ–¹å›¾è§„å®šåŒ–
+% IMG_imhist = imhist(imarray(:,:,2));%äº§ç”Ÿè§„å®šåŒ–æ¨¡æ¿
+% imarray(:,:,4) = histeq(imarray(:,:,4),IMG_imhist);%ç›´æ–¹å›¾è§„å®šåŒ–
 
 Ia=imarray(:,:,1)+imarray(:,:,2)+imarray(:,:,3)+imarray(:,:,4);
 % Ia(ROI_mask==0)=0;
