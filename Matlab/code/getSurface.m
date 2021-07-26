@@ -1,14 +1,12 @@
 function  heightMap = getSurface(surfaceNormals, method)
 % GETSURFACE computes the surface depth from normals
-%   HEIGHTMAP = GETSURFACE(SURFACENORMALS, IMAGESIZE, METHOD) computes
-%   HEIGHTMAP from the SURFACENORMALS using various METHODs. 
 %  
 % Input:
-%   SURFACENORMALS: height x width x 3 array of unit surface normals
-%   METHOD: the intergration method to be used
+%   SURFACENORMALS--height x width x 3 array of unit surface normals
+%   METHOD--the intergration method to be used
 %
 % Output:
-%   HEIGHTMAP: height map of object
+%   HEIGHTMAP--height map of object
 
 [h, w, channel] = size(surfaceNormals);
 temp = zeros(h, w);
@@ -160,39 +158,3 @@ switch method
        heightMap=height;
 end
 end
-
-
-function [x,iter] = cgm (A,b,x0,max_iter)
-x=x0;
-epsilon=1.0e-6;
-% fprintf('\n x0= ');
-% fprintf('   %10.6f',x0);
-r=b-A*x;
-d=r;
-for k=0:max_iter
-    alpha=(r'*r)/(d'*A*d);
-    xx=x+alpha*d;
-    rr=b-A*xx;
-    if (norm(rr,2)/norm(b,2))<= epsilon
-        fprintf('\n ÕÒµ½À²~');
-        iter = k+1;
-        x=xx;
-        r=rr;
-%         fprintf('\n x%d = ',k+1);
-%         fprintf('   %10.6f',x);
-%         fprintf('\n r%d = ',k+1);
-%         fprintf('   %10.6f',r);
-        
-        return
-    end
-    beta=(rr'*rr)/(r'*r);
-    d=rr+beta*d;
-    x=xx;
-    r=rr;
-%     fprintf('\n x%d = ',k+1);
-%     fprintf('   %10.6f',x);
-end
-iter = max_iter;
-return 
-end
-
