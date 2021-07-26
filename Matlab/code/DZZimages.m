@@ -1,3 +1,9 @@
+%% assume that:
+% the light source is parallel light and orthogonal acquisition;
+% The object has a Lambert surface;
+% but:
+% the light is definitly not parallel;
+% the suface could be affected by mirror surface;
 close all;
 
 %% vatiables need to be changed
@@ -24,27 +30,6 @@ Ori_imarray=getImages(imageDir,'_Dir*.jpg','4dir',numImages);
 [Ia,imarray] = preprocess(Ori_imarray,detectArea,30);
 
 %% calculate the normal-vector and reflect rate of surface
-% Ip=(double(imarray(:,:,1))-double(imarray(:,:,3)))./double(Ia);
-% Iq=(double(imarray(:,:,2))-double(imarray(:,:,4)))./double(Ia);
-% Ip(isnan(Ip))=0;Ip(isinf(Ip))=0;
-% Iq(isnan(Iq))=0;Iq(isinf(Iq))=0;
-% 
-% surfaceNormals=zeros(h,w,3); %vector of the surface
-% albedoImage=zeros(h,w); %reflection rate of the surface
-% 
-% surfaceNormals(:,:,1)=(2*Ip)/tan(pi*theta/180);
-% surfaceNormals(:,:,2)=(2*Iq)/tan(pi*theta/180);
-% surfaceNormals(:,:,3)=ones(h,w);
-% 
-% for i = 1:h
-%     for j = 1:w
-%         reflect_rate=sqrt(surfaceNormals(i,j,1)^2 + surfaceNormals(i,j,2)^2 + surfaceNormals(i,j,3)^2); 
-%         albedoImage(i,j)=reflect_rate;
-%     end
-% end
-% surfaceNormals(:,:,1)=surfaceNormals(:,:,1)./albedoImage;
-% surfaceNormals(:,:,2)=surfaceNormals(:,:,2)./albedoImage;
-% surfaceNormals(:,:,3)=surfaceNormals(:,:,3)./albedoImage;
 lightCorrect=tan(pi*theta/180);
 [albedoImage,surfaceNormals] = getNormalVec(imarray,Ia,lightCorrect,'minus');
 
