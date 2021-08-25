@@ -4,13 +4,14 @@
 % but:
 % the light is definitly not parallel;
 % the suface could be affected by mirror surface;
-close all;
 
+close all;
+clear all;
 %% vatiables need to be changed
 dataDir     = fullfile('..','data/'); % Path to your data directory
 subjectName = '3'; %the name of folder
 theta = 30.0; % the theta of the light(calculate from middle)
-detectArea=[2000,3000,1000,2000]; % row and col range to detect[1,3684,1,4912]
+detectArea=[700,1100,4200,4500]; % row and col range to detect[1,3684,1,4912]
 numImages   = 4; % Total images for each surface
 imageDir    = fullfile(dataDir, subjectName);
 integrationMethod = 'solve2';
@@ -27,7 +28,8 @@ Ori_imarray=getImages(imageDir,'_Dir*.jpg','4dir',numImages);
 % std_imarray=getImages(dataDir,'base_1*.jpg','standard',numImages);
 
 %% ROI and per-process
-[Ia,imarray] = preprocess(Ori_imarray,detectArea,30);
+Ep=ones(size(Ori_imarray));
+[Ia,imarray] = preprocess(Ori_imarray,detectArea,30,Ep);
 
 %% calculate the normal-vector and reflect rate of surface
 lightCorrect=tan(pi*theta/180);

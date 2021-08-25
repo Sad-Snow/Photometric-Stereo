@@ -1,4 +1,4 @@
-function [albedoImage,surfaceNormals] = getNormalVec(imarray,Ia,lightCorrect,ways)
+function [albedoImage,surfaceNormals] = getNormalVec(imarray,Ia,lightCorr,ways)
 %GETNORMALVEC calculate surface normal vector and reflect rate
 %   
 %Input:
@@ -20,12 +20,19 @@ switch ways
         Iq=(double(imarray(:,:,2))-double(imarray(:,:,4)))./double(Ia);
         Ip(isnan(Ip))=0;Ip(isinf(Ip))=0;
         Iq(isnan(Iq))=0;Iq(isinf(Iq))=0;
-        surfaceNormals(:,:,1)=(2*Ip)/lightCorrect;
-        surfaceNormals(:,:,2)=(2*Iq)/lightCorrect;
+        surfaceNormals(:,:,1)=(2*Ip)/lightCorr;
+        surfaceNormals(:,:,2)=(2*Iq)/lightCorr;
         surfaceNormals(:,:,3)=ones(h,w);
         
     case 'divide'
-        error('coming soon\n');
+        Ip=imarray(:,:,1)./imarray(:,:,3);
+        Iq=imarray(:,:,2)./imarray(:,:,4);
+        surfaceNormals=zeros(h,w,3);
+        surfaceNormals(:,:,1)=(-Ip.*lightCorr(:,:,6)+lightCorr(:,:,2)...
+                                )./(Ip.*lightCorr(:,:,5)+lightCorr(:,:,1));
+        surfaceNormals(:,:,2)=(-Iq.*lightCorr(:,:,8)+lightCorr(:,:,4)...
+                                )./(Iq.*lightCorr(:,:,7)+lightCorr(:,:,3));
+        surfaceNormals(:,:,3)=-ones(h,w);
         
     case 'iter'
         error('not write yet\n');

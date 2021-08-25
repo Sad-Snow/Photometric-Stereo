@@ -8,21 +8,17 @@ function displayOutput(albedo, height)
 
 [hgt, wid] = size(height);
 [X,Y] = meshgrid(1:wid, 1:hgt);
-H = flipud(fliplr(height));
-A = flipud(fliplr(albedo));
+% H = flipud(fliplr(height));
+% A = flipud(fliplr(albedo));
 
 figure;
-subplot(1,2,1);
-title('Albedo');
-imshow(albedo,[]);
-subplot(1,2,2);
-title('Height Map');
-imshow(height,[]);
+subplot(1,2,1);imshow(albedo,[]);title('Albedo');
+subplot(1,2,2);imshow(height,[]);title('Height Map');
 
 figure;
 % H=rescale(H,0,1000);
 % mesh(H, X, Y, A);
-mesh(H);
+mesh(height);
 axis equal;
 xlabel('X')%xlabel('Z')
 ylabel('Y')%ylabel('X')
