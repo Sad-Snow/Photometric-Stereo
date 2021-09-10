@@ -24,3 +24,9 @@ light source can be point or circle, choose the type you need;
 
 when run all image area, it will take a few minutes(4 min in my computer)!
 20210825
+
+
+more results added
+
+cause of the vignetting effect, some result still needed to be improved
+20210910
