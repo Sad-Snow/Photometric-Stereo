@@ -11,6 +11,7 @@ This is the Matlab vision
 
 clean up the code:
 displayOutput.m -- display the 3D model\curvature
+
 DZZimages.m -- main file without light correct
 getImages.m -- read in images
 getNormalVec.m -- calculate the normal-vectors and reflect rate of surface
