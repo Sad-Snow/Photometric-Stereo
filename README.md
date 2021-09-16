@@ -10,6 +10,7 @@ use lights from 4 directions: lower\right\up\left, named as _Dir000.jpg \\ _Dir0
 use lights from all directions, named as full.jpg
 
 it will be uptodated soon!
+
 20210726
 
 
@@ -23,10 +24,12 @@ for now, you can choose two ways to calculate the surface normal Surface normal 
 light source can be point or circle, choose the type you need;
 
 when run all image area, it will take a few minutes(4 min in my computer)!
+
 20210825
 
 
 more results added
 
 cause of the vignetting effect, some result still needed to be improved
+
 20210910
