@@ -3,7 +3,7 @@ A MATLAB/C++ Implementation of the Photometric Stereo Algorithm
 
 only matlab vision available, c++ vision is on the way;
 
-run from ./Matlab/DZZimages.m
+run from ./Matlab/DZZimages.m or DZZimage2.m
 
 use lights from 4 directions: lower\right\up\left, named as _Dir000.jpg \\ _Dir090.jpg \\ _Dir180.jpg \\ _Dir270.jpg
 
