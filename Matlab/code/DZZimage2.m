@@ -11,7 +11,7 @@ clear all;
 %images informatiion
 dataDir     = fullfile('..','data/'); % Path to your data directory
 subjectName = '3'; %the name of folder
-detectArea=[1,3684,800,4500]; % row and col range to detect[1,3684,800,4500][700,1100,4200,4500]
+detectArea=[1,1800,800,2300]; % row and col range to detect[1,3684,800,4500][1,1800,800,2300][700,1100,4200,4500]
 numImages   = 4; % Total images for each surface
 imageDir    = fullfile(dataDir, subjectName);
 integrationMethod = 'solve2'; % ways to calculate
@@ -36,7 +36,7 @@ base_imarray=getImages(dataDir,'base_1*.jpg','standard',numImages);
 Ori_imarray=getImages(imageDir,'_Dir*.jpg','4dir',numImages);
 
 %% ROI and per-process
-[Ia,imarray] = preprocess(Ori_imarray,detectArea,30,Ep);
+[Ia,imarray] = preprocess(Ori_imarray,detectArea,30,Ep,true);
 
 %% calculate the normal-vector and reflect rate of surface
 for i=1:size(angleMap,3)

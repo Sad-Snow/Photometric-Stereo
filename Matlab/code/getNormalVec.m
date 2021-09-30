@@ -32,6 +32,10 @@ switch ways
                                 )./(Ip.*lightCorr(:,:,5)+lightCorr(:,:,1));
         surfaceNormals(:,:,2)=(-Iq.*lightCorr(:,:,8)+lightCorr(:,:,4)...
                                 )./(Iq.*lightCorr(:,:,7)+lightCorr(:,:,3));
+%         surfaceNormals(:,:,1)=(-Ip.*lightCorr(:,:,5)+lightCorr(:,:,1)...
+%                                 )./(Ip.*lightCorr(:,:,6)+lightCorr(:,:,2));
+%         surfaceNormals(:,:,2)=(-Iq.*lightCorr(:,:,7)+lightCorr(:,:,3)...
+%                                 )./(Iq.*lightCorr(:,:,8)+lightCorr(:,:,4));
         surfaceNormals(:,:,3)=-ones(h,w);
         
     case 'iter'

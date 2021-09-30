@@ -144,9 +144,10 @@ switch method
            end
         end
        A = sparse(indx_row,indx_col,indx_value,dif*2,dif);
-       heightVec=A\b;
+       At=transpose(A);
+       AtA=At*A;
+       heightVec=AtA\(At*b);
 %        x0=zeros(dif, 1);
-%       [heightVec,~]=cgm (A,b,x0,10000); 
 %        heightVec = heightVec - min(heightVec);
        height=zeros(h,w);
         for i=1:h

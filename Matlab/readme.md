@@ -43,3 +43,13 @@ DZZimage2.m -- main file with light correct
 for now the result is better, will be updated!
 
 20210825
+
+
+more result added
+
+20210910
+
+
+some improve in preprocess.m 
+
+20210930

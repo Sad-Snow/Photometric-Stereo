@@ -71,7 +71,7 @@ switch lightshape
         end
         Ep=zeros(h,w,total_images);
         for j = 1 : total_images
-            Ep(:,:,j)=base_maxmin_point(j,5)*((lightAngleMap(:,:,j)).^10)./lightdistanceMap(:,:,j);
+            Ep(:,:,j)=base_maxmin_point(j,5)*((lightAngleMap(:,:,j)).^2)./lightdistanceMap(:,:,j);
         end
         display=(base_imarray(:,:,1)+base_imarray(:,:,2)+base_imarray(:,:,3)+base_imarray(:,:,4))/4;
         figure;imshow(rescale(display), []);
@@ -138,7 +138,7 @@ switch lightshape
         end
         Ep_B=zeros(minR*2,minR*2,total_images);
         for j = 1 : total_images
-            Ep_B(:,:,j)=base_maxmin_point(j,5)*((lightAngleMap(:,:,j)).^10)./lightdistanceMap(:,:,j);
+            Ep_B(:,:,j)=base_maxmin_point(j,5)*((lightAngleMap(:,:,j)).^5)./lightdistanceMap(:,:,j);
         end 
        %% rotate to simulate the circular distribution of point light sources
         angleMap=zeros(h,w,total_images*2); % angle of incidece(»Î…‰Ω«)

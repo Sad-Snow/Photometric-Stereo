@@ -33,3 +33,12 @@ more results added
 cause of the vignetting effect, some result still needed to be improved
 
 20210910
+
+
+improved according to the idea of Retinex algorithm
+
+result is better, see ./Matlab/data/3/DZZimages-bliaFilter.png
+
+Thanks for Jiawen (Kevin) Chen's code of bilateralFilter.m
+
+20210930
