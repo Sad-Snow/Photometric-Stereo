@@ -9,7 +9,7 @@ for now the result is not good, will be updated!
 
 All be transformed, 
 
-results is the same as Matlab vision, for some reaseon, source code cannot be shared
+results is the same as Matlab vision, for some reason, source code cannot be shared
 
 20210916
 
